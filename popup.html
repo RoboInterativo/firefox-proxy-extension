@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 340px; padding: 12px; font-family: sans-serif; font-size: 13px; }
+    h3 { margin: 0 0 10px; }
+    label { display: block; margin: 8px 0 4px; font-size: 12px; color: #444; }
+    input, textarea, select, button {
+      width: 100%; box-sizing: border-box; padding: 6px;
+      font-size: 13px; margin-bottom: 6px;
+      border: 1px solid #ccc; border-radius: 4px;
+    }
+    textarea { height: 90px; resize: vertical; font-family: monospace; }
+    button { cursor: pointer; background: #2a7; color: #fff; border: none; }
+    button:hover { background: #1a6; }
+    button.secondary { background: #666; }
+    button.secondary:hover { background: #555; }
+    .row { display: flex; gap: 6px; }
+    .row input { margin-bottom: 0; }
+    #status { font-size: 12px; color: #2a7; margin-top: 8px; min-height: 16px; }
+    .check { display: flex; align-items: center; gap: 6px; margin: 10px 0; }
+    .check input { width: auto; margin: 0; }
+    .check label { margin: 0; }
+  </style>
+</head>
+<body>
+  <h3>Selective Proxy (Squid)</h3>
+
+  <div class="check">
+    <input type="checkbox" id="enabled">
+    <label for="enabled">Включить прокси</label>
+  </div>
+
+  <label>Хост и порт Squid</label>
+  <div class="row">
+    <input id="host" placeholder="127.0.0.1">
+    <input id="port" placeholder="8080" style="max-width:80px">
+  </div>
+
+  <label>Логин (если включена авторизация)</label>
+  <input id="username" placeholder="user">
+
+  <label>Пароль</label>
+  <input id="password" type="password" placeholder="pass">
+
+  <label>Сайты (по одному на строку)</label>
+  <textarea id="sites" placeholder="example.com&#10;google.com"></textarea>
+
+  <button id="save">Сохранить</button>
+  <button id="test" class="secondary">Проверить прокси</button>
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
